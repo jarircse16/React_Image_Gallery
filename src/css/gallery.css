@@ -1,0 +1,84 @@
+/* gallery.css */
+.gallery {
+  text-align: center;
+  padding: 0px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
+}
+
+@media (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+  .image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+/* Regular image size */
+.image {
+  margin: 0; /* Remove margin */
+  padding: 0; /* Remove padding */
+  cursor: pointer;
+  transition: transform 0.3s;
+  width: 50%; /* Half the width of the container */
+  height: 50%; /* Half the height of the container */
+  box-sizing: border-box; /* Include padding and border in the width and height calculations */
+  position: relative; /* Position relative to add the overlay */
+}
+
+/* Apply a dark effect on hover for regular images */
+.image:hover {
+  filter: brightness(0.5); /* Decrease brightness to 70% when hovered */
+  transition: filter 0.3s; /* Add a smooth transition effect */
+}
+/* Featured image size (2x height and width) */
+.image.featured {
+  transform: scale(1.0); /* Keep the size of the featured image the same */
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container (2x the height of regular images) */
+  clear: both; /* Clear the float to move the featured image below regular images */
+}
+
+/* Add a clear: both for regular images as well to prevent them from overlapping */
+.image:not(.featured) {
+  clear: both;
+}
+
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* For the "Delete files" link */
+.delete-link {
+  color: red; /* Set the text color to red */
+  text-decoration: none; /* Remove the underline */
+  position: absolute;
+  top: 10px; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
+}
+
+/* For the selected files count text */
+.selected-files-count {
+  color: #333; /* Adjust the color as needed */
+  font-size: 14px; /* Adjust the font size as needed */
+  position: absolute;
+  top: 10px; /* Adjust the top position as needed */
+  left: 10px; /* Adjust the left position as needed */
+}
+
+/* For the "Delete files" link in the top right corner */
+.delete-link.top-right {
+  position: fixed; /* Use 'fixed' position to keep it at the top right corner regardless of scrolling */
+  top: 10px; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
+  color: red; /* Change the color to red */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Add any other styling as needed */
